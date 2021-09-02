@@ -43,6 +43,8 @@ def AddText(list, length, text):
 def open_webbrowser(question):
     webbrowser.open('https://baidu.com/s?wd=' + urllib.parse.quote(question))
 
+        
+
 # 显示所识别的题目
 def ShowAllQuestionText(list):
     text = ""
@@ -54,8 +56,15 @@ def ShowAllQuestionText(list):
 
 if __name__ == "__main__":
     while True:
-        start = input("按任意键程序开始运行：")
-        break
+        print("\n\n请将鼠标放在Word的搜索框上，三秒后脚本将自动获取Word搜索框位置！\n\n")
+        # 延时三秒输出鼠标位置
+        time.sleep(3)
+        # 获取当前鼠标位置
+        currentMouseX, currentMouseY = pyautogui.position()
+        print('当前鼠标位置为: {0} , {1}'.format(currentMouseX, currentMouseY))
+        start = input("按y键程序开始运行，按其他键重新获取搜索框位置：")
+        if start == 'y':
+            break
 
     while True:
         t = time.perf_counter()
@@ -108,19 +117,19 @@ if __name__ == "__main__":
         go = input('输入回车继续运行,输入 e 打开浏览器搜索，输入 a 增加题目长度，输入 n 结束程序运行： ')
         if go == 'n':
             break
-        while True:
-            if go == 'a':
-                text = AddText(questionList, length, text)
-                pyperclip.copy(text)
-                # 点击搜索
-                MoveMouseToSearch()
-                stop = input("输入回车继续")
-            elif go == 'e':
-                # 打开浏览器
-                open_webbrowser(text)
-                stop = input("输入回车继续")
+  
+        if go == 'a':
+            text = AddText(questionList, length, text)
+            pyperclip.copy(text)
+            # 点击搜索
+            MoveMouseToSearch()
+            stop = input("输入回车继续")
+        elif go == 'e':
+            # 打开浏览器
+            open_webbrowser(text)
+            stop = input("输入回车继续")
             
-            break
+    
 
 
         print('\n------------------------\n\n')
