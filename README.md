@@ -20,7 +20,7 @@
 
 ## 截图
 
-![运行示例](/screenshot.png '运行示例')
+![运行示例](/screenshot2.png '运行示例')
 
 <br/>
 
