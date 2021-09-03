@@ -35,8 +35,10 @@ def MoveMouseToSearch():
 
 # 扩充问题
 def AddText(list, length, text):
-    if length >= 3:
+    if length > 3:
         return text + list[3]
+    else:
+        return text
     
 # 打开浏览器
 def open_webbrowser(question):
