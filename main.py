@@ -5,7 +5,6 @@
 
 from PIL import Image
 import os
-from cv2 import addText
 import matplotlib.pyplot as plt
 from paddleocr import PaddleOCR, draw_ocr
 from paddleocr.paddleocr import main
